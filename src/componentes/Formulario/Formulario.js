@@ -5,7 +5,7 @@ import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import "./Formulario.css";
 
 //Area do formulario inteira até o export
-const Formulario = () => {
+const Formulario = (props) => {
   //Tipos (Lista suspensa) para a escolha do projeto
   const areaAtuacao = [
     "Back-End Java",
@@ -13,6 +13,8 @@ const Formulario = () => {
     "Back-End C",
     "Front-End site",
   ];
+
+  const time = ["Back-End Java", "Front-End", "Projetos Futuros"];
 
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -23,14 +25,13 @@ const Formulario = () => {
   const aoSalvar = (evento) => {
     // evento.preventDefault(); -> evita que a pagina simplismente carrega no submite
     evento.preventDefault();
-    console.log(
-      "Form foi submetido =>",
+    props.aoProjetoCadastrado({
       nome,
       descricao,
       contato,
       imagem,
-      tipo
-    );
+      tipo,
+    });
   };
 
   //preenchendo as áreas do form
