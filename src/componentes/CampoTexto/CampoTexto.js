@@ -4,11 +4,21 @@ import "./CampoTexto.css";
 const CampoTexto = (props) => {
   const placeholderModificada = `${props.placeholder}...`;
 
+  //digitação no console em tempo real
+  const aoDigitado = (evento) => {
+    props.aoAlterado(evento.target.value);
+  };
+
   //required={props.obrigatorio} -> Torna o campo obrigatorio
   return (
     <div className="campo-texto">
       <label>{props.label}</label>
-      <input required={props.obrigatorio} placeholder={placeholderModificada} />
+      <input
+        value={props.valor}
+        onChange={aoDigitado}
+        required={props.obrigatorio}
+        placeholder={placeholderModificada}
+      />
     </div>
   );
 };
