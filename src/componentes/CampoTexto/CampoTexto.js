@@ -1,5 +1,6 @@
 import "./CampoTexto.css";
 
+//Áreas de texto (input) dentro do form, já vinculada diretamente com placeholder
 const CampoTexto = (props) => {
   const placeholderModificada = `${props.placeholder}...`;
   return (

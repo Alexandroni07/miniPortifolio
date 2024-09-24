@@ -1,5 +1,6 @@
 import "./ListaSuspensa.css";
 
+//Card de escolha de tipo
 const ListaSuspensa = (props) => {
   return (
     <div className="Lista-suspensa">
