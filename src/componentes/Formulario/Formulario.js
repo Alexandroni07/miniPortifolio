@@ -7,20 +7,12 @@ import "./Formulario.css";
 //Area do formulario inteira até o export
 const Formulario = (props) => {
   //Tipos (Lista suspensa) para a escolha do projeto
-  const areaAtuacao = [
-    "Back-End Java",
-    "Back-End Python",
-    "Back-End C",
-    "Front-End site",
-  ];
-
-  const time = ["Back-End Java", "Front-End", "Projetos Futuros"];
 
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [contato, setContato] = useState("");
   const [imagem, setImagem] = useState("");
-  const [tipo, setTipo] = useState("");
+  const [time, setTime] = useState("");
 
   const aoSalvar = (evento) => {
     // evento.preventDefault(); -> evita que a pagina simplismente carrega no submite
@@ -30,15 +22,20 @@ const Formulario = (props) => {
       descricao,
       contato,
       imagem,
-      tipo,
+      time,
     });
+    setNome("");
+    setDescricao("");
+    setContato("");
+    setImagem("");
+    setTime("");
   };
 
   //preenchendo as áreas do form
   return (
     <section className="formulario">
       <form onSubmit={aoSalvar}>
-        <h2>Preencha os seguintes cards para ideias de novos projetos </h2>
+        <h2>Preencha os seguintes cards para adicionar projetos </h2>
 
         <CampoTexto
           obrigatorio={true}
@@ -70,10 +67,10 @@ const Formulario = (props) => {
 
         <ListaSuspensa
           obrigatorio={true}
-          label="tipo"
-          itens={areaAtuacao}
-          valor={tipo}
-          aoAlterado={(valor) => setTipo(valor)}
+          label="Time"
+          itens={props.times}
+          valor={time}
+          aoAlterado={(valor) => setTime(valor)}
         />
 
         <Botao>Criar card</Botao>
