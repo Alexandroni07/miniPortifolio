@@ -24,16 +24,23 @@ const Formulario = () => {
     <section className="formulario">
       <form onSubmit={aoSalvar}>
         <h2>Preencha os seguintes cards para ideias de novos projetos </h2>
-        <CampoTexto label="Nome" placeholder="Digite um nome para o projeto" />
         <CampoTexto
+          obrigatorio={true}
+          label="Nome"
+          placeholder="Digite um nome para o projeto"
+        />
+        <CampoTexto
+          obrigatorio={true}
           label="Descrição"
           placeholder="Digite a descrição do projeto"
         />
         <CampoTexto
+          obrigatorio={true}
           label="Contato"
           placeholder="Digite seu telefone para contato"
         />
-        <ListaSuspensa label="tipo" itens={tipo} />
+        <CampoTexto label="Imagem" placeholder="URL da imagem (opcional)" />
+        <ListaSuspensa obrigatorio={true} label="tipo" itens={tipo} />
         <Botao>Criar card</Botao>
       </form>
     </section>
