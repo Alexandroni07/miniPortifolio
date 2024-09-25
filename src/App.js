@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./componentes/Banner/Banner";
 import Formulario from "./componentes/Formulario/Formulario";
 import Time from "./componentes/Time/Time";
+import Footer from "./componentes/Footer/Footer";
 
 //App principal
 function App() {
@@ -51,6 +52,7 @@ function App() {
           projetos={projetos.filter((projeto) => projeto.time === time.nome)}
         />
       ))}
+      <Footer />
     </div>
   );
 }
